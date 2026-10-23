@@ -24,7 +24,7 @@ Aprire quindi <http://localhost:8000/>.
 
 ## Pubblicazione
 
-Il workflow `.github/workflows/deploy-pages.yml` pubblica esclusivamente il contenuto di `site/` tramite GitHub Pages. Il dominio previsto è `www.riccardoprezioso.it`, già dichiarato in `site/CNAME`.
+Il workflow `.github/workflows/deploy-pages.yml` pubblica esclusivamente il contenuto di `site/` tramite GitHub Pages. Durante lo sviluppo può essere avviato soltanto manualmente, così un normale push non rende pubblico il sito. Il dominio previsto è `www.riccardoprezioso.it`, già dichiarato in `site/CNAME`.
 
 Prima della pubblicazione definitiva:
 

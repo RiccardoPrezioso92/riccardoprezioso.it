@@ -1,0 +1,12 @@
+.DS_Store
+
+# Materiali di lavoro locali: non pubblicare nel repository del sito.
+_arrivi/
+Documenti/
+Output/
+
+# File temporanei di editor e server locali.
+*.log
+.idea/
+.vscode/
+

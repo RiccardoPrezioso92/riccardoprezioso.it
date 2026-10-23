@@ -36,6 +36,66 @@ window.addEventListener("scroll", () => {
 
 updateScrollEffects();
 
+const bookingPanel = document.querySelector("[data-booking-panel]");
+
+if (bookingPanel) {
+  const bookingTabs = [...bookingPanel.querySelectorAll("[data-location-tab]")];
+  const calendarPanes = [...bookingPanel.querySelectorAll("[data-calendar-pane]")];
+  const locationNumber = bookingPanel.querySelector("[data-location-number]");
+  const locationName = bookingPanel.querySelector("[data-location-name]");
+  const locationAddress = bookingPanel.querySelector("[data-location-address]");
+  const locationCity = bookingPanel.querySelector("[data-location-city]");
+  const locationPhoto = bookingPanel.querySelector("[data-location-photo]");
+  const locationPhotoLabel = bookingPanel.querySelector("[data-location-photo-label]");
+
+  const selectLocation = (tab) => {
+    const controlledPaneId = tab.getAttribute("aria-controls");
+
+    bookingTabs.forEach((item) => {
+      const isSelected = item === tab;
+      item.classList.toggle("is-active", isSelected);
+      item.setAttribute("aria-selected", String(isSelected));
+      item.tabIndex = isSelected ? 0 : -1;
+    });
+
+    calendarPanes.forEach((pane) => {
+      const isSelected = pane.id === controlledPaneId;
+      pane.hidden = !isSelected;
+      pane.classList.toggle("is-active", isSelected);
+    });
+
+    const name = tab.dataset.name;
+    locationNumber.textContent = tab.dataset.number;
+    locationName.textContent = name;
+    locationAddress.textContent = tab.dataset.address;
+    locationCity.textContent = tab.dataset.city;
+    locationPhotoLabel.textContent = `Foto centro · ${name}`;
+    locationPhoto.setAttribute("aria-label", `Placeholder fotografia di ${name}`);
+  };
+
+  bookingTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => selectLocation(tab));
+    tab.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+        return;
+      }
+
+      event.preventDefault();
+      let nextIndex = index;
+
+      if (event.key === "ArrowLeft") nextIndex = (index - 1 + bookingTabs.length) % bookingTabs.length;
+      if (event.key === "ArrowRight") nextIndex = (index + 1) % bookingTabs.length;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = bookingTabs.length - 1;
+
+      bookingTabs[nextIndex].focus();
+      selectLocation(bookingTabs[nextIndex]);
+    });
+  });
+
+  selectLocation(bookingTabs.find((tab) => tab.getAttribute("aria-selected") === "true") || bookingTabs[0]);
+}
+
 const revealTargets = document.querySelectorAll([
   ".hero-copy > *",
   ".hero-grid > .photo-placeholder",
@@ -48,6 +108,7 @@ const revealTargets = document.querySelectorAll([
   ".steps li",
   ".location-card",
   ".review-panel > *",
+  ".booking-panel > *",
   ".service-detail",
   ".visit-timeline li",
   ".article-index a",

@@ -678,9 +678,51 @@ h3 {
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms ease;
 }
 
+.service-detail > * {
+  min-width: 0;
+}
+
+.service-detail h2 {
+  max-width: 100%;
+  font-size: clamp(2.65rem, 3.85vw, 4rem);
+  hyphens: manual;
+}
+
 .service-detail:hover {
   box-shadow: var(--shadow);
   transform: translateY(-4px);
+}
+
+.service-summary {
+  min-width: 0;
+}
+
+.service-photo {
+  min-height: 13rem;
+  margin-top: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+.service-photo::before {
+  border-radius: calc(var(--radius-md) - 0.65rem);
+}
+
+.article-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.article-link span {
+  transition: transform 200ms ease;
+}
+
+.article-link:hover span {
+  transform: translateX(0.3rem);
 }
 
 .service-detail ul {
@@ -725,6 +767,158 @@ h3 {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
+}
+
+.article-page-hero h1 {
+  max-width: 10ch;
+}
+
+.article-index {
+  position: sticky;
+  top: 4.65rem;
+  z-index: 20;
+  padding: 0.8rem 0;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  border-block: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+}
+
+.article-index-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.article-index a {
+  display: grid;
+  min-height: 4.8rem;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.article-index a:hover {
+  background: var(--surface);
+  border-color: var(--line);
+  transform: translateY(-2px);
+}
+
+.article-index span {
+  color: var(--olive);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.article-index strong {
+  font-size: 0.83rem;
+  line-height: 1.25;
+}
+
+.article-section {
+  padding: clamp(5.5rem, 10vw, 10rem) 0;
+  scroll-margin-top: 10rem;
+}
+
+.article-section.surface {
+  background: var(--surface);
+}
+
+.article-layout {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.68fr) minmax(0, 1.32fr);
+  align-items: start;
+  gap: clamp(3rem, 8vw, 8rem);
+}
+
+.article-aside {
+  position: sticky;
+  top: 10.5rem;
+}
+
+.article-visual {
+  min-height: 21rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 1.4rem 3.5rem rgba(20, 23, 19, 0.09);
+}
+
+.article-visual::before {
+  border-radius: calc(var(--radius-md) - 0.65rem);
+}
+
+.article-meta {
+  margin: 1.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.article-copy {
+  max-width: 48rem;
+}
+
+.article-copy h2 {
+  max-width: 14ch;
+  margin-bottom: 1.8rem;
+}
+
+.article-copy h3 {
+  margin-top: 2.7rem;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.article-copy p {
+  color: #424741;
+  font-size: 1.04rem;
+  line-height: 1.82;
+}
+
+.article-copy .article-deck {
+  margin-bottom: 3rem;
+  color: var(--muted);
+  font-size: clamp(1.15rem, 1.8vw, 1.42rem);
+  line-height: 1.55;
+}
+
+.article-note {
+  margin-top: 3rem;
+  padding: 1.2rem 1.35rem;
+  color: var(--surface) !important;
+  background: var(--olive-dark);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem !important;
+}
+
+.article-bibliography {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.article-bibliography h3 {
+  margin-top: 0;
+}
+
+.article-bibliography ol {
+  margin-bottom: 0;
+  padding-left: 1.2rem;
+}
+
+.article-bibliography li {
+  margin-bottom: 0.7rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.article-bibliography a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .site-footer {
@@ -821,6 +1015,27 @@ h3 {
     transform: none;
   }
 
+  .article-index {
+    position: relative;
+    top: auto;
+  }
+
+  .article-index-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .article-aside {
+    position: static;
+  }
+
+  .article-visual {
+    min-height: 18rem;
+  }
+
   .trust-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -894,6 +1109,19 @@ h3 {
 
   .trust-strip {
     margin-top: -1.5rem;
+  }
+
+  .article-index-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-index a {
+    min-height: 3.8rem;
+  }
+
+  .article-copy p {
+    font-size: 1rem;
+    line-height: 1.75;
   }
 }
 

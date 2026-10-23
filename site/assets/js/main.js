@@ -50,6 +50,10 @@ const revealTargets = document.querySelectorAll([
   ".review-panel > *",
   ".service-detail",
   ".visit-timeline li",
+  ".article-index a",
+  ".article-aside > *",
+  ".article-copy > h2",
+  ".article-copy > .article-deck",
   ".cta-inner > *"
 ].join(","));
 

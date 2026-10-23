@@ -11,7 +11,7 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
 });
 
 const header = document.querySelector(".site-header");
-const heroPhoto = document.querySelector(".hero .photo-placeholder");
+const heroPhoto = document.querySelector(".hero .photo-placeholder, .hero .profile-photo");
 let frameRequested = false;
 
 const updateScrollEffects = () => {
@@ -39,6 +39,7 @@ updateScrollEffects();
 const revealTargets = document.querySelectorAll([
   ".hero-copy > *",
   ".hero-grid > .photo-placeholder",
+  ".hero-grid > .profile-photo",
   ".page-hero .container > *",
   ".trust-item",
   ".section-heading > *",

@@ -2,9 +2,12 @@
 
 Cartella riservata alle immagini definitive del sito.
 
+## Immagini presenti
+
+- `riccardo-prezioso-miodottore.jpg`: fotografia del profilo pubblico del Dott. Riccardo Prezioso su MioDottore, scaricata nella versione `large` e conservata localmente per l'uso nel sito.
+
 Placeholder previsti:
 
-- ritratto hero in divisa sanitaria;
 - valutazione clinica e dialogo con il paziente;
 - utilizzo dell'ecografo;
 - dettaglio di schemi e disegni esplicativi;

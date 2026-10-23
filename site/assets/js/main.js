@@ -46,6 +46,7 @@ if (bookingPanel) {
   const locationAddress = bookingPanel.querySelector("[data-location-address]");
   const locationCity = bookingPanel.querySelector("[data-location-city]");
   const locationPhoto = bookingPanel.querySelector("[data-location-photo]");
+  const locationPhotoImage = bookingPanel.querySelector("[data-location-photo-image]");
   const locationPhotoLabel = bookingPanel.querySelector("[data-location-photo-label]");
 
   const selectLocation = (tab) => {
@@ -69,8 +70,26 @@ if (bookingPanel) {
     locationName.textContent = name;
     locationAddress.textContent = tab.dataset.address;
     locationCity.textContent = tab.dataset.city;
-    locationPhotoLabel.textContent = `Foto centro · ${name}`;
-    locationPhoto.setAttribute("aria-label", `Placeholder fotografia di ${name}`);
+
+    const imageSrc = tab.dataset.image;
+
+    if (imageSrc) {
+      locationPhotoImage.src = imageSrc;
+      locationPhotoImage.alt = tab.dataset.imageAlt || `Interni di ${name}`;
+      locationPhotoImage.hidden = false;
+      locationPhotoLabel.hidden = true;
+      locationPhoto.classList.add("has-image");
+      locationPhoto.removeAttribute("role");
+      locationPhoto.removeAttribute("aria-label");
+    } else {
+      locationPhotoImage.hidden = true;
+      locationPhotoImage.alt = "";
+      locationPhotoLabel.textContent = `Foto centro · ${name}`;
+      locationPhotoLabel.hidden = false;
+      locationPhoto.classList.remove("has-image");
+      locationPhoto.setAttribute("role", "img");
+      locationPhoto.setAttribute("aria-label", `Placeholder fotografia di ${name}`);
+    }
   };
 
   bookingTabs.forEach((tab, index) => {

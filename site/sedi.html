@@ -15,10 +15,10 @@
     <main id="contenuto">
       <header class="page-hero"><div class="container"><p class="eyebrow">Sedi e prenotazione</p><h1>Scegli la sede più comoda.</h1><p class="lead">Disponibilità, prestazioni e informazioni aggiornate sono consultabili direttamente attraverso MioDottore.</p></div></header>
       <section class="section surface"><div class="container location-grid">
-        <article class="location-card"><div class="photo-placeholder center-photo" role="img" aria-label="Placeholder fotografia di G2 Medica"><span>Foto centro · G2 Medica</span></div><div class="location-copy"><h3>G2 Medica</h3><p>Via E. A. Pantano 107 · Catania</p></div></article>
+        <article class="location-card"><figure class="center-photo"><img src="assets/images/centro-g2-medica.jpg" alt="Area di accoglienza interna di G2 Medica" width="1024" height="684" loading="lazy"></figure><div class="location-copy"><h3>G2 Medica</h3><p>Via E. A. Pantano 107 · Catania</p></div></article>
         <article class="location-card"><div class="photo-placeholder center-photo" role="img" aria-label="Placeholder fotografia di CEFAS Santa Maria"><span>Foto centro · CEFAS Santa Maria</span></div><div class="location-copy"><h3>CEFAS Santa Maria</h3><p>Via Giuseppe Bonaventura 56 · Randazzo</p></div></article>
-        <article class="location-card"><div class="photo-placeholder center-photo" role="img" aria-label="Placeholder fotografia del Centro Fisioterapia Sant'Antonio"><span>Foto centro · Centro Fisioterapia Sant'Antonio</span></div><div class="location-copy"><h3>Centro Fisioterapia Sant'Antonio</h3><p>Viale Regina Margherita 31 · Bronte</p></div></article>
-        <article class="location-card"><div class="photo-placeholder center-photo" role="img" aria-label="Placeholder fotografia di Nova Salus"><span>Foto centro · Nova Salus</span></div><div class="location-copy"><h3>Nova Salus</h3><p>Via Enna 46 · San Giovanni Gemini</p></div></article>
+        <article class="location-card"><figure class="center-photo"><img src="assets/images/centro-sant-antonio.jpg" alt="Reception del Centro Fisioterapia Sant'Antonio" width="1400" height="788" loading="lazy"></figure><div class="location-copy"><h3>Centro Fisioterapia Sant'Antonio</h3><p>Viale Regina Margherita 31 · Bronte</p></div></article>
+        <article class="location-card"><figure class="center-photo"><img src="assets/images/centro-nova-salus.jpg" alt="Studio medico di Nova Salus" width="1200" height="898" loading="lazy"></figure><div class="location-copy"><h3>Nova Salus</h3><p>Via Enna 46 · San Giovanni Gemini</p></div></article>
       </div></section>
       <section class="section booking-section" id="prenota">
         <div class="booking-container">
@@ -26,8 +26,9 @@
             <div class="booking-location" aria-live="polite">
               <p class="eyebrow">Sede selezionata</p>
               <p class="booking-location-number"><span data-location-number>01</span> / 04</p>
-              <div class="photo-placeholder booking-location-photo" role="img" aria-label="Placeholder fotografia di G2 Medica" data-location-photo>
-                <span data-location-photo-label>Foto centro · G2 Medica</span>
+              <div class="photo-placeholder booking-location-photo has-image" data-location-photo>
+                <img src="assets/images/centro-g2-medica.jpg" alt="Area di accoglienza interna di G2 Medica" width="1024" height="684" data-location-photo-image>
+                <span data-location-photo-label hidden>Foto centro · G2 Medica</span>
               </div>
               <div class="booking-location-copy">
                 <h2 data-location-name>G2 Medica</h2>
@@ -47,10 +48,10 @@
               </div>
 
               <div class="booking-tabs" role="tablist" aria-label="Scegli la sede per la prenotazione">
-                <button class="booking-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="calendar-g2" id="tab-g2" data-location-tab data-number="01" data-name="G2 Medica" data-address="Via E. A. Pantano 107" data-city="Catania">G2 Medica</button>
-                <button class="booking-tab" type="button" role="tab" aria-selected="false" aria-controls="calendar-cefas" id="tab-cefas" data-location-tab data-number="02" data-name="CEFAS Santa Maria" data-address="Via Giuseppe Bonaventura 56" data-city="Randazzo">CEFAS Santa Maria</button>
-                <button class="booking-tab" type="button" role="tab" aria-selected="false" aria-controls="calendar-santantonio" id="tab-santantonio" data-location-tab data-number="03" data-name="Centro Fisioterapia Sant'Antonio" data-address="Viale Regina Margherita 31" data-city="Bronte">Sant'Antonio</button>
-                <button class="booking-tab" type="button" role="tab" aria-selected="false" aria-controls="calendar-novasalus" id="tab-novasalus" data-location-tab data-number="04" data-name="Nova Salus — Centro di Fisioterapia" data-address="Via Enna 46" data-city="San Giovanni Gemini">Nova Salus</button>
+                <button class="booking-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="calendar-g2" id="tab-g2" data-location-tab data-number="01" data-name="G2 Medica" data-address="Via E. A. Pantano 107" data-city="Catania" data-image="assets/images/centro-g2-medica.jpg" data-image-alt="Area di accoglienza interna di G2 Medica">G2 Medica</button>
+                <button class="booking-tab" type="button" role="tab" aria-selected="false" aria-controls="calendar-cefas" id="tab-cefas" data-location-tab data-number="02" data-name="CEFAS Santa Maria" data-address="Via Giuseppe Bonaventura 56" data-city="Randazzo" data-image="">CEFAS Santa Maria</button>
+                <button class="booking-tab" type="button" role="tab" aria-selected="false" aria-controls="calendar-santantonio" id="tab-santantonio" data-location-tab data-number="03" data-name="Centro Fisioterapia Sant'Antonio" data-address="Viale Regina Margherita 31" data-city="Bronte" data-image="assets/images/centro-sant-antonio.jpg" data-image-alt="Reception del Centro Fisioterapia Sant'Antonio">Sant'Antonio</button>
+                <button class="booking-tab" type="button" role="tab" aria-selected="false" aria-controls="calendar-novasalus" id="tab-novasalus" data-location-tab data-number="04" data-name="Nova Salus — Centro di Fisioterapia" data-address="Via Enna 46" data-city="San Giovanni Gemini" data-image="assets/images/centro-nova-salus.jpg" data-image-alt="Studio medico di Nova Salus">Nova Salus</button>
               </div>
 
               <div class="widget-frame booking-widget">

@@ -355,6 +355,25 @@ h3 {
   text-transform: uppercase;
 }
 
+.center-photo {
+  position: relative;
+  display: block;
+  min-height: 13rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin: 0;
+  background: var(--paper-deep);
+  border-radius: var(--radius-md);
+}
+
+.center-photo img,
+.booking-location-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .photo-placeholder.center-photo {
   min-height: 13rem;
   border-radius: var(--radius-md);
@@ -651,6 +670,15 @@ h3 {
   margin-bottom: clamp(1.6rem, 3vw, 2.5rem);
   border-radius: var(--radius-md);
   box-shadow: none;
+}
+
+.booking-location-photo.has-image {
+  padding: 0;
+}
+
+.booking-location-photo img {
+  position: absolute;
+  inset: 0;
 }
 
 .booking-location-photo::before {

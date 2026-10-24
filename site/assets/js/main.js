@@ -48,6 +48,7 @@ if (bookingPanel) {
   const locationPhoto = bookingPanel.querySelector("[data-location-photo]");
   const locationPhotoImage = bookingPanel.querySelector("[data-location-photo-image]");
   const locationPhotoLabel = bookingPanel.querySelector("[data-location-photo-label]");
+  const bookingWidget = bookingPanel.querySelector(".booking-widget");
 
   const selectLocation = (tab) => {
     const controlledPaneId = tab.getAttribute("aria-controls");
@@ -59,10 +60,14 @@ if (bookingPanel) {
       item.tabIndex = isSelected ? 0 : -1;
     });
 
+    let activePane;
+
     calendarPanes.forEach((pane) => {
       const isSelected = pane.id === controlledPaneId;
       pane.hidden = !isSelected;
       pane.classList.toggle("is-active", isSelected);
+
+      if (isSelected) activePane = pane;
     });
 
     const name = tab.dataset.name;
@@ -90,6 +95,15 @@ if (bookingPanel) {
       locationPhoto.setAttribute("role", "img");
       locationPhoto.setAttribute("aria-label", `Placeholder fotografia di ${name}`);
     }
+
+    window.requestAnimationFrame(() => {
+      if (bookingWidget) bookingWidget.scrollTop = 0;
+      if (activePane) activePane.scrollTop = 0;
+
+      const activeFrame = activePane?.querySelector("iframe");
+      activeFrame?.setAttribute("scrolling", "yes");
+      window.dispatchEvent(new Event("resize"));
+    });
   };
 
   bookingTabs.forEach((tab, index) => {
@@ -127,7 +141,6 @@ const revealTargets = document.querySelectorAll([
   ".steps li",
   ".location-card",
   ".review-panel > *",
-  ".booking-panel > *",
   ".service-detail",
   ".visit-timeline li",
   ".article-aside > *",

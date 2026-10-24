@@ -682,6 +682,10 @@ h3 {
   inset: 0;
 }
 
+.booking-location-photo img[hidden] {
+  display: none;
+}
+
 .booking-location-photo::before {
   border-radius: calc(var(--radius-md) - 0.65rem);
 }
@@ -712,6 +716,7 @@ h3 {
 
 .booking-calendar-area {
   min-width: 0;
+  overflow: hidden;
   padding: clamp(2rem, 4vw, 4rem);
   background: var(--surface);
 }
@@ -766,20 +771,25 @@ h3 {
   transform: translateY(-2px);
 }
 
-.booking-tab.is-active {
+.booking-tab.is-active,
+.booking-tab[aria-selected="true"] {
   color: var(--surface);
   background: var(--olive-dark);
   border-color: var(--olive-dark);
 }
 
 .booking-widget {
-  min-height: 27rem;
-  overflow: visible;
+  height: clamp(34rem, 58vh, 42rem);
+  min-height: 34rem;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
   padding: clamp(1rem, 2vw, 1.5rem);
   background: #fff;
 }
 
 .booking-widget-pane {
+  height: 100%;
   width: 100%;
   min-width: 0;
 }
@@ -791,7 +801,10 @@ h3 {
 .booking-widget-pane iframe {
   display: block;
   width: 100% !important;
+  height: 100% !important;
+  min-height: 31rem !important;
   max-width: 100%;
+  border: 0;
   margin-inline: auto;
 }
 
@@ -1271,7 +1284,8 @@ h3 {
   }
 
   .booking-widget {
-    min-height: 24rem;
+    height: 38rem;
+    min-height: 38rem;
     padding: 0.6rem;
   }
 }

@@ -11,6 +11,80 @@ document.querySelectorAll("[data-nav-link]").forEach((link) => {
 });
 
 const header = document.querySelector(".site-header");
+const mobileNavigation = document.querySelector("[data-mobile-nav]");
+const menuToggle = document.querySelector(".menu-toggle");
+const menuToggleText = menuToggle?.querySelector("[data-menu-toggle-text]");
+const mobileNavigationQuery = window.matchMedia("(max-width: 900px)");
+
+if (header && mobileNavigation && menuToggle) {
+  const setMobileNavigationState = (isOpen, options = {}) => {
+    const { focusMenu = false, restoreFocus = false } = options;
+    const shouldOpen = mobileNavigationQuery.matches && isOpen;
+
+    mobileNavigation.classList.toggle("is-open", shouldOpen);
+    header.classList.toggle("has-open-menu", shouldOpen);
+    menuToggle.setAttribute("aria-expanded", String(shouldOpen));
+    menuToggle.setAttribute("aria-label", shouldOpen ? "Chiudi menu" : "Apri menu");
+
+    if (menuToggleText) {
+      menuToggleText.textContent = shouldOpen ? "Chiudi" : "Menu";
+    }
+
+    if (mobileNavigationQuery.matches) {
+      mobileNavigation.setAttribute("aria-hidden", String(!shouldOpen));
+    } else {
+      mobileNavigation.removeAttribute("aria-hidden");
+    }
+
+    if (shouldOpen && focusMenu) {
+      window.requestAnimationFrame(() => {
+        mobileNavigation.querySelector("a")?.focus();
+      });
+    }
+
+    if (!shouldOpen && restoreFocus) {
+      menuToggle.focus();
+    }
+  };
+
+  const closeMobileNavigation = (restoreFocus = false) => {
+    setMobileNavigationState(false, { restoreFocus });
+  };
+
+  menuToggle.addEventListener("click", () => {
+    const willOpen = menuToggle.getAttribute("aria-expanded") !== "true";
+    setMobileNavigationState(willOpen, { focusMenu: willOpen });
+  });
+
+  mobileNavigation.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      closeMobileNavigation();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (menuToggle.getAttribute("aria-expanded") === "true" && !header.contains(event.target)) {
+      closeMobileNavigation();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+      closeMobileNavigation(true);
+    }
+  });
+
+  const syncMobileNavigation = () => closeMobileNavigation();
+
+  if (typeof mobileNavigationQuery.addEventListener === "function") {
+    mobileNavigationQuery.addEventListener("change", syncMobileNavigation);
+  } else {
+    mobileNavigationQuery.addListener(syncMobileNavigation);
+  }
+
+  syncMobileNavigation();
+}
+
 const heroPhoto = document.querySelector(".hero .photo-placeholder, .hero .profile-photo");
 let frameRequested = false;
 

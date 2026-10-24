@@ -1066,6 +1066,91 @@ h3 {
   line-height: 1.55;
 }
 
+.external-service-note {
+  max-width: 40rem;
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.external-service-note a {
+  color: var(--ink);
+  font-weight: 650;
+  text-underline-offset: 0.18em;
+}
+
+.booking-service-note {
+  margin-top: 0.95rem;
+}
+
+.privacy-hero h1 {
+  max-width: none;
+}
+
+.privacy-updated {
+  margin-top: 1.3rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.privacy-layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.7fr) minmax(0, 1.6fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: start;
+}
+
+.privacy-summary {
+  position: sticky;
+  top: 7rem;
+  padding: 1.6rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.privacy-summary ul {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.privacy-summary li {
+  color: #454a44;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.privacy-copy {
+  max-width: 50rem;
+}
+
+.privacy-copy section + section {
+  margin-top: 3.2rem;
+  padding-top: 3.2rem;
+  border-top: 1px solid var(--line);
+}
+
+.privacy-copy h2 {
+  max-width: 18ch;
+  margin-bottom: 1.15rem;
+  font-size: clamp(1.85rem, 3.2vw, 3rem);
+}
+
+.privacy-copy p {
+  color: #424741;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.privacy-copy a {
+  color: var(--olive-dark);
+  font-weight: 650;
+  text-underline-offset: 0.2em;
+}
+
 .site-footer {
   padding: 3rem 0;
   background: var(--ink);
@@ -1176,6 +1261,14 @@ h3 {
 
   .article-layout {
     grid-template-columns: 1fr;
+  }
+
+  .privacy-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .privacy-summary {
+    position: static;
   }
 
   .article-aside {

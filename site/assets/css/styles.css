@@ -112,17 +112,13 @@ a {
 }
 
 .brand-mark {
-  display: grid;
-  width: 3rem;
-  aspect-ratio: 1;
-  place-items: center;
-  color: var(--surface);
+  display: block;
+  width: 3.2rem;
+  height: 3.2rem;
+  flex: 0 0 3.2rem;
+  object-fit: cover;
   background: var(--ink);
-  border-radius: 50%;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: -0.08em;
+  border-radius: 0.72rem;
 }
 
 .brand-copy {
